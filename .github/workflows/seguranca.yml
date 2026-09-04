@@ -1,0 +1,16 @@
+name: CI de Segurança
+
+on:
+  push:
+    branches: [ "main", "master" ]
+
+jobs:
+  scans-centralizados:
+    uses: joaohenrique11z/teste_esteira/.github/workflows/pipeline.yml@v1.1
+    with:
+      project_name: 'Projeto-Front-Amigo'
+      stack_type: 'node' 
+      run_dast: false
+    secrets:
+      DEFECTDOJO_URL: 'https://defectdojo.mockado.com'
+      DEFECTDOJO_API_KEY: 'token-ficticio-para-teste'
